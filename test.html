@@ -1,0 +1,28 @@
+<html>
+	<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="http://crypto-js.googlecode.com/svn/tags/3.0.2/build/rollups/hmac-sha256.js"></script>
+<script src="http://crypto-js.googlecode.com/svn/tags/3.0.2/build/components/enc-base64-min.js"></script>
+
+<script>
+
+//'uj701f5celIx3QiVAl+Hyy7mSnhb2PVrxao/xEpP', '20170715', 'us-east-1', 'lex'
+$(document).ready(function(){
+  	var kDate = CryptoJS.HmacSHA256("20170715", "AWS4" + "uj701f5celIx3QiVAl+Hyy7mSnhb2PVrxao/xEpP");
+    var kRegion = CryptoJS.HmacSHA256("us-east-1", kDate);
+    var kService = CryptoJS.HmacSHA256("lex", kRegion);
+    var kSigning = CryptoJS.HmacSHA256("aws4_request", kService);
+    alert(kSigning);
+});
+</script>
+	</head>
+	<body>
+	</body>
+</html>
+
+# Hello World program in Python
+import datetime
+t = datetime.datetime.utcnow()
+amzdate = t.strftime('%Y%m%dT%H%M%SZ')
+print amzdate
+
